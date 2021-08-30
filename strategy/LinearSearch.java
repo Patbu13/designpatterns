@@ -1,3 +1,5 @@
+package strategy;
+
 import java.util.ArrayList;
 /**
  * Patrick Burroughs
@@ -10,7 +12,7 @@ import java.util.ArrayList;
  * 
  * Searches entire list one by one
  */
-public class LinearSearch {
+public class LinearSearch implements SearchBehavior {
 
     /**
      * Method for checking whether the given list contains the given string
@@ -19,7 +21,14 @@ public class LinearSearch {
      * @param item string being searched for
      * @return boolean returning whether the list contains the given string
      */
+    @Override
     public boolean contains(ArrayList<String> data, String item)    {
+        for (int i=0; i<data.size(); i++)    {
+            if (data.get(i).equalsIgnoreCase(item))
+            return true;
+            else
+            return false;
+        }
         return true;
     }
 
