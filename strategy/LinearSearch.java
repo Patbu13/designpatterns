@@ -26,10 +26,8 @@ public class LinearSearch implements SearchBehavior {
         for (int i=0; i<data.size(); i++)    {
             if (data.get(i).equalsIgnoreCase(item))
             return true;
-            else
-            return false;
         }
-        return true;
+        return false;
     }
 
 }
