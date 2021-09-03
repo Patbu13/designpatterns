@@ -20,8 +20,8 @@ public class BestSellers implements Subject {
      * Object for creation of the best sellers list
      */
     public BestSellers() {
-        observers = new ArrayList<Observer>();
-        bestSellers = new ArrayList<Book>();
+        this.observers = new ArrayList<Observer>();
+        this.bestSellers = new ArrayList<Book>();
     }
 
     /**
@@ -50,8 +50,8 @@ public class BestSellers implements Subject {
      * @param book string of name and author of new best seller
      */
     public void notifyObservers(Book bk) {
-        for (int i = 0; i < observers.size(); i++) {
-            observers.get(i).update(bk);
+        for (Observer obs : observers) {
+            obs.update(bk);
         }
     }
 
@@ -62,5 +62,6 @@ public class BestSellers implements Subject {
      */
     public void addBook(Book bk) {
         bestSellers.add(bk);
+        notifyObservers(bk);
     }
 }

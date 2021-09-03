@@ -31,6 +31,7 @@ public class Customer implements Observer {
         this.firstName = fN;
         this.lastName = lN;
         this.wishList = new ArrayList<Book>();
+        subject.registerObserver(this);
     }
 
     /**
@@ -49,7 +50,7 @@ public class Customer implements Observer {
         System.out.println("Wish List: \n");
 
         for (int i = 0; i < wishList.size(); i++) {
-            System.out.println(wishList.get(i) + "\n");
+            System.out.println(wishList.get(i));
         }
     }
 }

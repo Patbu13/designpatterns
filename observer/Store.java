@@ -16,9 +16,7 @@ import java.util.Iterator;
 public class Store implements Observer {
 
     private Subject subject;
-    private String title;
     private Queue<Book> bestSellers;
-    Iterator<Book> iterate = bestSellers.iterator();
 
     /**
      * Constructor for creation of the store which holds methods and variables to
@@ -26,10 +24,10 @@ public class Store implements Observer {
      * 
      * @param subject subject of the list
      */
-    public Store(Subject sbj) {
-        this.subject = sbj;
-        this.title = "Bookstore";
-        Queue<Book> bestSellers = new LinkedList<Book>();
+    public Store(Subject subject) {
+        this.subject = subject;
+        subject.registerObserver(this);
+        bestSellers = new LinkedList<Book>();
     }
 
     /**
@@ -54,11 +52,10 @@ public class Store implements Observer {
      * Display the list of the current top 5 best sellers
      */
     public void display() {
-
-        System.out.println("Top 5 Best Sellers:");
+        System.out.print("Top 5 Best Sellers:");
 
         for (Book item : bestSellers) {
-            System.out.println(item.toString() + "\n");
+            System.out.println(item);
         }
         /**
          * to iterate through my queue of objects
