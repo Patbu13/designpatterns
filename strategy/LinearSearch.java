@@ -1,6 +1,7 @@
-package strategy;
+package designpatterns.strategy;
 
 import java.util.ArrayList;
+
 /**
  * Patrick Burroughs
  * Portia Plante 247 Section 002
@@ -22,10 +23,10 @@ public class LinearSearch implements SearchBehavior {
      * @return boolean returning whether the list contains the given string
      */
     @Override
-    public boolean contains(ArrayList<String> data, String item)    {
-        for (int i=0; i<data.size(); i++)    {
+    public boolean contains(ArrayList<String> data, String item) {
+        for (int i = 0; i < data.size(); i++) {
             if (data.get(i).equalsIgnoreCase(item))
-            return true;
+                return true;
         }
         return false;
     }

@@ -1,6 +1,7 @@
-package strategy;
+package designpatterns.strategy;
 
 import java.util.ArrayList;
+
 /**
  * Patrick Burroughs
  * Portia Plante 247 Section 002
@@ -32,14 +33,13 @@ public class GuestList {
      * @param person The name to add to the list
      * @return boolean to know if the name was successfully added or not
      */
-    public boolean add(String person)   {
-            if (searchBehavior.contains(people,person) == true)    {
-                return false;
-            }
-            else    {
-                people.add(person);
-                return true;
-            }
+    public boolean add(String person) {
+        if (searchBehavior.contains(people, person) == true) {
+            return false;
+        } else {
+            people.add(person);
+            return true;
+        }
     }
 
     /**
@@ -48,12 +48,12 @@ public class GuestList {
      * @param person The name to remove from the list
      * @return boolean to know if the name was successfully removed or not
      */
-    public boolean remove(String person)    {
-        if (searchBehavior.contains(people,person) == true)    {
-            for (int i=0; i<people.size(); i++)    {
-                if (person == people.get(i))    {
-                people.remove(i);
-                return true;
+    public boolean remove(String person) {
+        if (searchBehavior.contains(people, person) == true) {
+            for (int i = 0; i < people.size(); i++) {
+                if (person == people.get(i)) {
+                    people.remove(i);
+                    return true;
                 }
             }
         }
@@ -65,7 +65,7 @@ public class GuestList {
      * 
      * @return the title of the list
      */
-    public String getTitle()    {
+    public String getTitle() {
         return this.title;
     }
 
@@ -74,8 +74,8 @@ public class GuestList {
      * 
      * @param searchBehavior tells method which search style should be set active
      */
-    public void setSearchBehavior(SearchBehavior sBehave)    {
-            searchBehavior = sBehave;
+    public void setSearchBehavior(SearchBehavior sBehave) {
+        searchBehavior = sBehave;
     }
 
     /**
@@ -83,7 +83,7 @@ public class GuestList {
      * 
      * @return the list
      */
-    public ArrayList<String> getList()  {
+    public ArrayList<String> getList() {
         return this.people;
     }
 }

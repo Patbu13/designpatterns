@@ -1,14 +1,13 @@
-package observer;
+package designpatterns.observer;
 
 /**
  * Runs our Best Seller Book Program
  */
 public class BookDriver {
-    
+
     /**
-     * Creates the Best Seller, and the Store and Client
-     * Then displays the top 5 best sellers, and the 
-     * Clients wishlist
+     * Creates the Best Seller, and the Store and Client Then displays the top 5
+     * best sellers, and the Clients wishlist
      */
     public void run() {
         BestSellers bestSellers = new BestSellers();
@@ -30,7 +29,7 @@ public class BookDriver {
         myCustomer.display();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         BookDriver driver = new BookDriver();
         driver.run();
     }
