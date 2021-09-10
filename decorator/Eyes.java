@@ -9,7 +9,7 @@ package designpatterns.decorator;
 /**
  * Deals with the addition of eyes to a character's face
  */
-public class Eyes {
+public class Eyes extends CharacterDecorator {
 
     /**
      * Constructor for the eyes of the potato head
@@ -17,9 +17,8 @@ public class Eyes {
      * @param chr character object specifying which face is being drawn
      */
     public Eyes(Character chr) {
-
-        // ??
-
+        super(chr);
+        this.character = chr;
     }
 
     /**

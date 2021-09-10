@@ -9,7 +9,7 @@ package designpatterns.decorator;
 /**
  * Sole method constructs the base potato head
  */
-public class PotatoeHead {
+public class PotatoeHead extends Character {
 
     /**
      * Constructor for the base potato head

@@ -9,7 +9,7 @@ package designpatterns.decorator;
 /**
  * "General Manager" for dealing with the specific editing of a character's face
  */
-public class CharacterDecorator {
+public abstract class CharacterDecorator extends Character {
 
     protected Character character;
 
@@ -19,9 +19,7 @@ public class CharacterDecorator {
      * @param chr character object specifying which face is being drawn
      */
     public CharacterDecorator(Character chr) {
-
         this.character = chr;
-
     }
 
     /**

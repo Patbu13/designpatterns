@@ -9,7 +9,7 @@ package designpatterns.decorator;
 /**
  * Deals with the addition of a nose to a character's face
  */
-public class Nose {
+public class Nose extends CharacterDecorator {
 
     /**
      * Constructor for the nose of the potato head
@@ -17,9 +17,8 @@ public class Nose {
      * @param chr character object specifying which face is being drawn
      */
     public Nose(Character chr) {
-
-        // ??
-
+        super(chr);
+        this.character = chr;
     }
 
     /**

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * General object for every new character
  */
-public class Character {
+public abstract class Character {
 
     protected ArrayList<String> sections;
 
@@ -19,7 +19,7 @@ public class Character {
      * Constructor for the array holding each line of the base potato head
      */
     public Character() {
-
+        this.sections = new ArrayList<String>();
     }
 
     /**

@@ -9,7 +9,7 @@ package designpatterns.decorator;
 /**
  * Deals with the addition of a mouth to a character's face
  */
-public class Mouth {
+public class Mouth extends CharacterDecorator {
 
     /**
      * Constructor for the mouth of the potato head
@@ -17,9 +17,8 @@ public class Mouth {
      * @param chr character object specifying which face is being drawn
      */
     public Mouth(Character chr) {
-
-        // ??
-
+        super(chr);
+        this.character = chr;
     }
 
     /**

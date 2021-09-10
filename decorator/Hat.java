@@ -9,7 +9,7 @@ package designpatterns.decorator;
 /**
  * Deals with the addition of a hat to a character's face
  */
-public class Hat {
+public class Hat extends CharacterDecorator {
 
     /**
      * Constructor for the hat of the potato head
@@ -17,9 +17,8 @@ public class Hat {
      * @param chr character object specifying which face is being drawn
      */
     public Hat(Character chr) {
-
-        // ??
-
+        super(chr);
+        this.character = chr;
     }
 
     /**

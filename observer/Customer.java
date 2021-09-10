@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class Customer implements Observer {
 
     private Subject subject;
-    private String firstName;
-    private String lastName;
     private ArrayList<Book> wishList;
 
     /**
@@ -28,8 +26,6 @@ public class Customer implements Observer {
      */
     public Customer(Subject sbj, String fN, String lN) {
         this.subject = sbj;
-        this.firstName = fN;
-        this.lastName = lN;
         this.wishList = new ArrayList<Book>();
         subject.registerObserver(this);
     }
