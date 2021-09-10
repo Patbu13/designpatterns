@@ -1,0 +1,31 @@
+package designpatterns.decorator;
+
+import java.util.ArrayList;
+
+/**
+ * Patrick Burroughs
+ * Portia Plante 247 Section 002
+ * Decorator Design Pattern
+*/
+
+/**
+ * General object for every new character
+ */
+public class Character {
+
+    protected ArrayList<String> sections;
+
+    /**
+     * Constructor for the array holding each line of the base potato head
+     */
+    public Character() {
+
+    }
+
+    /**
+     * Method for printing the character to the user
+     */
+    public void draw() {
+
+    }
+}

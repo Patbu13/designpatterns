@@ -1,3 +1,5 @@
+package designpatterns.decorator;
+
 /**
  * Runs the Potoatoe Head Program
  */
