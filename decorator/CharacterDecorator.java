@@ -20,6 +20,7 @@ public abstract class CharacterDecorator extends Character {
      */
     public CharacterDecorator(Character chr) {
         this.character = chr;
+        this.sections = chr.sections;
     }
 
     /**

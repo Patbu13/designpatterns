@@ -15,7 +15,13 @@ public class PotatoeHead extends Character {
      * Constructor for the base potato head
      */
     public PotatoeHead() {
-
+        sections.add("");
+        sections.add("   ______");
+        sections.add("  /      \\");
+        sections.add(" |        |");
+        sections.add(" |        |");
+        sections.add("  \\      /");
+        sections.add("   \\____/");
     }
 
 }

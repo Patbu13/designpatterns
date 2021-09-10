@@ -19,13 +19,14 @@ public class Nose extends CharacterDecorator {
     public Nose(Character chr) {
         super(chr);
         this.character = chr;
+        this.customize();
     }
 
     /**
      * Method to modify the character's face based on the requested features
      */
     public void customize() {
-
+        sections.set(4, " |   >    | ");
     }
 
 }

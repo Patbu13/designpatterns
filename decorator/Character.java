@@ -26,6 +26,8 @@ public abstract class Character {
      * Method for printing the character to the user
      */
     public void draw() {
-
+        for (int i = 0; i < sections.size(); i++) {
+            System.out.println(sections.get(i));
+        }
     }
 }

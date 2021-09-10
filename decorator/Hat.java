@@ -19,13 +19,15 @@ public class Hat extends CharacterDecorator {
     public Hat(Character chr) {
         super(chr);
         this.character = chr;
+        this.customize();
     }
 
     /**
      * Method to modify the character's face based on the requested features
      */
     public void customize() {
-
+        sections.set(0, "    ____");
+        sections.set(1, " __|____|____");
     }
 
 }
