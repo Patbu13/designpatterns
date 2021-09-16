@@ -19,14 +19,20 @@ public class TinyHomePlan extends HousePlan {
      * tiny home
      */
     protected void setMaterials() {
-
+        materials.set(0, "Lumber");
+        materials.set(1, "Insulation");
+        materials.set(2, "Metal Roofing");
+        materials.set(3, "Hardware");
     }
 
     /**
      * Sets the features of the house plan to resemble those of a tiny home
      */
     protected void setFeatures() {
-
+        features.set(0, "Natural Light");
+        features.set(1, "Creative Storage");
+        features.set(2, "Multipurpose Areas");
+        features.set(3, "Multi-use Applications");
     }
 
     /**

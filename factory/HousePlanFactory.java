@@ -19,7 +19,7 @@ public class HousePlanFactory {
      * @return returns the specified house plan to the driver
      */
     public HousePlan createHousePlan(String type) {
-        return this;
+        return HousePlan;
     }
 
 }

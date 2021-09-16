@@ -19,14 +19,18 @@ public class LogCabinPlan extends HousePlan {
      * log cabin
      */
     protected void setMaterials() {
-
+        materials.set(0, "Log Siding");
+        materials.set(1, "Board and Batten Siding");
+        materials.set(2, "White Pine");
     }
 
     /**
      * Sets the features of the house plan to resemble those of a log cabin
      */
     protected void setFeatures() {
-
+        features.set(0, "Timbered Roof");
+        features.set(1, "High Insulation");
+        features.set(2, "Rustic Effect");
     }
 
     /**
