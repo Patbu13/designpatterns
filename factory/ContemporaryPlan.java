@@ -38,6 +38,9 @@ public class ContemporaryPlan extends HousePlan {
      * Returns a string listing the details of the contemporary plan
      */
     public String toString() {
-        return "";
+        return "Contemporary Home\nSquare Feet: " + this.getSquareFeet() + "\nRoom: " + this.getNumRooms()
+                + "\nWindows: " + this.getNumWindows() + "\n\nMaterials:\n" + materials.get(0) + "\n" + materials.get(1)
+                + "\n" + materials.get(2) + "\n\nFeatures:\n" + features.get(0) + "\n" + features.get(1) + "\n"
+                + features.get(2) + "\n" + features.get(3) + "\n\n";
     }
 }

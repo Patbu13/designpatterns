@@ -20,6 +20,13 @@ public class HousePlanFactory {
      */
     public HousePlan createHousePlan(String type) {
         return HousePlan;
+        if (type.compareTo("log cabin") == 0) {
+            return LogCabinPlan();
+        } else if (type.compareTo("Tiny Home") == 0) {
+            LogCabinPlan();
+        } else {
+
+        }
     }
 
 }
