@@ -12,6 +12,9 @@ public class ContemporaryPlan extends HousePlan {
      */
     public ContemporaryPlan() {
         super(5, 40, 3000);
+        this.setFeatures();
+        this.setMaterials();
+        this.toString();
     }
 
     /**
@@ -19,19 +22,19 @@ public class ContemporaryPlan extends HousePlan {
      * contemporary
      */
     protected void setMaterials() {
-        materials.set(0, "Ceramics");
-        materials.set(1, "High-Strength Alloys");
-        materials.set(2, "Composites");
+        materials.add(" - Ceramics");
+        materials.add(" - High-Strength Alloys");
+        materials.add(" - Composites");
     }
 
     /**
      * Sets the features of the house plan to resemble those of a contemporary
      */
     protected void setFeatures() {
-        features.set(0, "Oversized Windows");
-        features.set(1, "Unconventional Roofs");
-        features.set(2, "Minimalism");
-        features.set(3, "Open Floor Plan");
+        features.add(" - Oversized Windows");
+        features.add(" - Unconventional Roofs");
+        features.add(" - Minimalism");
+        features.add(" - Open Floor Plan");
     }
 
     /**

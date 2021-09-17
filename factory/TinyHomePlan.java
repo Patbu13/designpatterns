@@ -12,6 +12,9 @@ public class TinyHomePlan extends HousePlan {
      */
     public TinyHomePlan() {
         super(1, 5, 200);
+        this.setFeatures();
+        this.setMaterials();
+        this.toString();
     }
 
     /**
@@ -19,20 +22,20 @@ public class TinyHomePlan extends HousePlan {
      * tiny home
      */
     protected void setMaterials() {
-        materials.set(0, "Lumber");
-        materials.set(1, "Insulation");
-        materials.set(2, "Metal Roofing");
-        materials.set(3, "Hardware");
+        this.materials.add(" - Lumber");
+        this.materials.add(" - Insulation");
+        this.materials.add(" - Metal Roofing");
+        this.materials.add(" - Hardware");
     }
 
     /**
      * Sets the features of the house plan to resemble those of a tiny home
      */
     protected void setFeatures() {
-        features.set(0, "Natural Light");
-        features.set(1, "Creative Storage");
-        features.set(2, "Multipurpose Areas");
-        features.set(3, "Multi-use Applications");
+        this.features.add(" - Natural Light");
+        this.features.add(" - Creative Storage");
+        this.features.add(" - Multipurpose Areas");
+        this.features.add(" - Multi-use Applications");
     }
 
     /**

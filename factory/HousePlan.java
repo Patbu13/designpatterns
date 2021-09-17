@@ -24,7 +24,7 @@ public abstract class HousePlan {
     }
 
     protected void setMaterials() {
-
+        materials = this.materials;
     }
 
     protected void setFeatures() {
