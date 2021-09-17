@@ -18,14 +18,14 @@ public class HousePlanFactory {
      * @param type tells the method what class to call to specify the plan
      * @return returns the specified house plan to the driver
      */
-    public HousePlan createHousePlan(String type) {
-        return HousePlan;
-        if (type.compareTo("log cabin") == 0) {
-            return LogCabinPlan();
-        } else if (type.compareTo("Tiny Home") == 0) {
-            LogCabinPlan();
-        } else {
+    public static HousePlan createHousePlan(String type) {
 
+        if (type.compareTo("log cabin") == 0) {
+            return new LogCabinPlan();
+        } else if (type.compareTo("Tiny Home") == 0) {
+            return new TinyHomePlan();
+        } else {
+            return new ContemporaryPlan();
         }
     }
 
