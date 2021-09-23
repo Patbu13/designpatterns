@@ -1,4 +1,6 @@
+
 //package designpatterns.iterator;
+import java.util.Iterator;
 
 /**
  * Patrick Burroughs
@@ -33,6 +35,7 @@ public class Flight {
         this.to = to;
         this.duration = duration;
         this.transfers = tranfers;
+        this.toString();
     }
 
     /**
@@ -64,16 +67,27 @@ public class Flight {
     }
 
     /**
-     * Returns the flight information in the format that it will be printed to the
-     * console in
+     * Returns the flight information in the format it will be printed to the
+     * console
      */
     public String toString() {
         int hours = 0;
-        int minutes = 0;
-        // write duration code
+        int minutes = this.duration;
+
+        while (minutes > 60) {
+            minutes -= 60;
+            hours++;
+        }
+
         String returnString = "Flight Number: " + this.flightNum + "\nFrom: " + this.from + "\nTo: " + this.to
                 + "\nDuration: " + hours + " hours " + minutes + " minutes\n";
-        // if statement for adding the transfers string
+        if (this.transfers == 0) {
+            returnString += "Direct Flight\n";
+        } else if (this.transfers == 1) {
+            returnString += "1 Transfer\n";
+        } else {
+            returnString += this.transfers + " Transfers\n";
+        }
         return returnString;
     }
 }

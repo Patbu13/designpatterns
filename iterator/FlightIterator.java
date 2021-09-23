@@ -1,4 +1,6 @@
+
 //package designpatterns.iterator;
+import java.util.Iterator;
 
 /**
  * Patrick Burroughs
@@ -31,7 +33,11 @@ public class FlightIterator {
      * @return whether or not there is another flight in the array
      */
     public boolean hasNext() {
-        return false;
+        if (position >= flights.length || flights[position] == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -40,7 +46,6 @@ public class FlightIterator {
      * @return the next flight in the array
      */
     public Flight next() {
-        return this.flights[position];
-        // ????? idk this a guess
+        return this.flights[position++];
     }
 }

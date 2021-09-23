@@ -1,4 +1,6 @@
+
 //package designpatterns.iterator;
+import java.util.Iterator;
 
 /**
  * Patrick Burroughs
@@ -22,7 +24,7 @@ public class Airline {
      */
     public Airline(String title) {
         this.title = title;
-        // TODO this.flights = Flight[];
+        this.flights = new Flight[2];
     }
 
     /**
@@ -35,7 +37,14 @@ public class Airline {
      * @param transfers how many transfers the flight has
      */
     public void addFlight(String flightNum, String from, String to, int duration, int transfers) {
+        Flight newFlight = new Flight(flightNum, from, to, duration, transfers);
 
+        if (createIterator().hasNext()) {
+            flights[flights.length] = createIterator().next();
+        } else {
+            this.flights = growArray(flights);
+            flights[flights.length] = createIterator().next();
+        }
     }
 
     /**
@@ -52,7 +61,13 @@ public class Airline {
      * @param flights array of all of an airline's flights
      * @return the array of the airline's flights after being doubled
      */
-    private Flight[] growArray(Flight[] flights) {
+    private Flight[] growArray(Flight[] oldFlights) {
+        Flight[] flights = new Flight[(oldFlights.length) * 2];
+
+        for (int i = 0; i < oldFlights.length; i++) {
+            flights[i] = oldFlights[i];
+        }
+
         return flights;
     }
 
@@ -62,6 +77,6 @@ public class Airline {
      * @return the newly created iterator for the airline's array of flights
      */
     public FlightIterator createIterator() {
-        // TODO
+        return new FlightIterator(flights);
     }
 }
