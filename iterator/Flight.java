@@ -1,5 +1,3 @@
-
-//package designpatterns.iterator;
 import java.util.Iterator;
 
 /**
