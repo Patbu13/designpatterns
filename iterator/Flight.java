@@ -35,7 +35,6 @@ public class Flight {
         this.to = to;
         this.duration = duration;
         this.transfers = tranfers;
-        this.toString();
     }
 
     /**
@@ -82,11 +81,11 @@ public class Flight {
         String returnString = "Flight Number: " + this.flightNum + "\nFrom: " + this.from + "\nTo: " + this.to
                 + "\nDuration: " + hours + " hours " + minutes + " minutes\n";
         if (this.transfers == 0) {
-            returnString += "Direct Flight\n";
+            returnString += "Direct Flight";
         } else if (this.transfers == 1) {
-            returnString += "1 Transfer\n";
+            returnString += "1 Transfer";
         } else {
-            returnString += this.transfers + " Transfers\n";
+            returnString += this.transfers + " Transfers";
         }
         return returnString;
     }

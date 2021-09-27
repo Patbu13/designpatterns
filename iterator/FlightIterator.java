@@ -12,7 +12,7 @@ import java.util.Iterator;
  * Deals with iterating through the airline's array of flights Uses some of the
  * methods passed from the iterator interface
  */
-public class FlightIterator {
+public class FlightIterator implements Iterator {
 
     private Flight[] flights;
     private int position;

@@ -25,6 +25,7 @@ public class Airline {
     public Airline(String title) {
         this.title = title;
         this.flights = new Flight[2];
+        this.size = 0;
     }
 
     /**
@@ -39,12 +40,13 @@ public class Airline {
     public void addFlight(String flightNum, String from, String to, int duration, int transfers) {
         Flight newFlight = new Flight(flightNum, from, to, duration, transfers);
 
-        if (createIterator().hasNext()) {
-            flights[flights.length] = createIterator().next();
+        if (size + 1 != flights.length) {
+            flights[size] = newFlight;
         } else {
             this.flights = growArray(flights);
-            flights[flights.length] = createIterator().next();
+            flights[size] = newFlight;
         }
+        size++;
     }
 
     /**
