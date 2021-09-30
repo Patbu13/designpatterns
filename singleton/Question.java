@@ -10,7 +10,7 @@
  */
 public class Question {
 
-    private String question;
+    private String questio;
     private String[] answers;
     private int correctAnswer;
 
@@ -25,7 +25,8 @@ public class Question {
      * @param correctAnswer the number of the correct answer
      */
     public Question(String quest, String ans1, String ans2, String ans3, String ans4, int correct) {
-        question = quest;
+        questio = quest;
+        answers = new String[4];
         answers[0] = ans1;
         answers[1] = ans2;
         answers[2] = ans3;
@@ -39,7 +40,7 @@ public class Question {
      * returned and printed to the user
      */
     public String toString() {
-        return question + "\n 1. " + answers[0] + "\n 2. " + answers[1] + "\n 3. " + answers[2] + "\n 4. " + answers[3]
+        return questio + "\n 1. " + answers[0] + "\n 2. " + answers[1] + "\n 3. " + answers[2] + "\n 4. " + answers[3]
                 + "\n";
     }
 

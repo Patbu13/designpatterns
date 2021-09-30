@@ -24,12 +24,10 @@ public class TriviaGame {
      * Constructor for the trivia game, the score, and utilities for other methods
      */
     private TriviaGame() {
-        triviaGame = new TriviaGame();
-        this.score = 0;
-        this.rand = new Random();
-        this.reader = new Scanner(System.in);
-        // this.questions = new ArrayList<Question>();
-        this.questions = DataLoader.getTriviaQuestions();
+        score = 0;
+        rand = new Random();
+        reader = new Scanner(System.in);
+        questions = new ArrayList<Question>(DataLoader.getTriviaQuestions());
     }
 
     /**
@@ -38,7 +36,7 @@ public class TriviaGame {
      * @return the active trivia game
      */
     public static TriviaGame getInstance() {
-        return triviaGame;
+        return triviaGame = new TriviaGame();
     }
 
     /**
@@ -51,19 +49,18 @@ public class TriviaGame {
         boolean correctness = false;
 
         while (playing == true) {
-            read = "";
-
             correctness = triviaGame.playRound();
             if (correctness == true) {
                 score++;
             }
 
-            while (read != "P" && read != "Q") {
+            read = "";
+            while (!read.equals("P") && !read.equals("Q")) {
                 System.out.println("(P)lay or (Q)uit: ");
-                read = reader.nextLine().toUpperCase();
+                read = reader.next().toUpperCase();
+                if (read.equals("P")) {
 
-                if (read == "P") {
-                } else if (read == "Q") {
+                } else if (read.equals("Q")) {
                     System.out.println("You won " + score + " games!\nGoodbye");
                     System.exit(0);
                 } else {
