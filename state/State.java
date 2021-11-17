@@ -1,5 +1,5 @@
 /**
- * Patrick Burroughs
+ * @author Patrick Burroughs
  * Portia Plante 247 Section 002
  * State Design Pattern
  */
