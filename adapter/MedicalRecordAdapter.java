@@ -5,16 +5,20 @@
  */
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Modifies a patient's health record into a more readable medical record format
  */
-public class MedicalRecordAdapter {
+public class MedicalRecordAdapter implements MedicalRecord {
     
-    record HealthRecord;
+    HealthRecord record;
+    ArrayList<Visit> visitHistory  = new ArrayList<Visit>();
 
     public MedicalRecordAdapter(HealthRecord record) {
-        this.HealthRecord = record;
+        this.record = record;
+        //if this.record.getHistory().size()
     }
 
     /**
@@ -22,15 +26,15 @@ public class MedicalRecordAdapter {
      * @return first name of patient
      */
     public String getFirstName() {
-        String fullName = this.HealthRecord.getName();
-        String firstName;
+        String fullName = this.record.getName();
+        String firstName = "";
         for (int i = 0; i < fullName.length(); i++) {
-            firstName += fullName.indexOf(i);
-            if (fullName.indexOf(i) == " ") {
+            firstName += fullName.charAt(i);
+            if (fullName.indexOf(" ") == i) {
                 i = fullName.length();
             }
         }
-        return lastName;
+        return firstName;
     }
 
     /**
@@ -38,14 +42,14 @@ public class MedicalRecordAdapter {
      * @return last name of patient
      */
     public String getLastName() {
-        String fullName = this.HealthRecord.getName();
-        String lastName;
+        String fullName = this.record.getName();
+        String lastName = "";
         boolean spaced = false;
         for (int i = 0; i < fullName.length(); i++) {
             if (spaced) {
-                lastName += fullName.indexOf(i);
+                lastName += fullName.charAt(i);
             }
-            if (fullName.indexOf(i) == " ") {
+            if (fullName.indexOf(" ") == i) {
                 spaced = true;
             }
         }
@@ -57,7 +61,7 @@ public class MedicalRecordAdapter {
      * @return birthdate
      */
     public Date getBirthday() {
-        return this.HealthRecord.getBirthdate();
+        return this.record.getBirthdate();
     }
 
     /**
@@ -65,7 +69,16 @@ public class MedicalRecordAdapter {
      * @return gender
      */
     public Gender getGender() {
-        return this.HealthRecord.getGender();
+        String strGender = this.record.getGender();
+        if (strGender.equalsIgnoreCase("MALE")) {
+            return Gender.MALE;
+        }
+        else if (strGender.equalsIgnoreCase("FEMALE")) {
+            return Gender.FEMALE;
+        }
+        else {
+            return Gender.OTHER;
+        }
     }
 
     /**
@@ -76,8 +89,7 @@ public class MedicalRecordAdapter {
      */
     public void addVisit(Date date, boolean well, String description) {
         Visit visit = new Visit(date, well, description);
-        
-        
+        visitHistory.add(visit);
     }
 
     /**
@@ -85,13 +97,42 @@ public class MedicalRecordAdapter {
      * @return list of patient's visits
      */
     public ArrayList<Visit> getVisitHistory() {
-
+        return visitHistory;
     }
 
     /**
-     * Compiles patient's information
+     * Compiles patient's information into a readable string
      */
     public String toString() {
-        return "***** " + this.getFirstName() + this.getLastName() + " *****\nBirthday: ";
+        String gender = "";
+        String returned = "";
+        if (this.getGender() == Gender.MALE) {
+            gender = "Male";
+        }
+        else if (this.getGender() == Gender.FEMALE) {
+            gender = "Female";
+        }
+        else {
+            gender = "Other";
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        returned = "***** " + this.getFirstName() + this.getLastName() + " *****\nBirthday: " + simpleDateFormat.format(this.getBirthday()) +
+        "\nGender: " + gender + "\nMedical Visit History: \n";
+
+        for (int i = 0; i < this.record.getHistory().size(); i++) {
+            returned += this.record.getHistory().get(i) + "\n";
+        }
+
+        for (int i = 0; i < visitHistory.size(); i++) {
+            returned += simpleDateFormat.format(visitHistory.get(i).getDate()) + ": ";
+            if (visitHistory.get(i).isWell()) {
+                returned += "Well Visit, ";
+            }
+            else {
+                returned += "Sick Visit, ";
+            }
+            returned += visitHistory.get(i).getDescription() + "\n";
+        }
+        return returned;
     }
 }
