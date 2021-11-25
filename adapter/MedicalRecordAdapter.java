@@ -106,6 +106,7 @@ public class MedicalRecordAdapter implements MedicalRecord {
     public String toString() {
         String gender = "";
         String returned = "";
+
         if (this.getGender() == Gender.MALE) {
             gender = "Male";
         }
@@ -119,8 +120,34 @@ public class MedicalRecordAdapter implements MedicalRecord {
         returned = "***** " + this.getFirstName() + this.getLastName() + " *****\nBirthday: " + simpleDateFormat.format(this.getBirthday()) +
         "\nGender: " + gender + "\nMedical Visit History: \n";
 
+        String histDate = "";
+        String histWell = "";
+        String histComments = "";
+        String currentHist = "";
+
         for (int i = 0; i < this.record.getHistory().size(); i++) {
-            returned += this.record.getHistory().get(i) + "\n";
+            histDate = "";
+            histWell = "";
+            histComments = "";
+            currentHist = this.record.getHistory().get(i);
+                    histDate += currentHist.charAt(15);
+                    histDate += currentHist.charAt(16) + "/";
+                    histDate += currentHist.charAt(11);
+                    histDate += currentHist.charAt(12) + "/";
+                    histDate += currentHist.charAt(19);
+                    histDate += currentHist.charAt(20);
+                    histDate += currentHist.charAt(21);
+                    histDate += currentHist.charAt(22) + ": ";
+                
+                    if (currentHist.charAt(36) ==  't') {
+                        histWell = "Well Visit, ";
+                        histComments = currentHist.substring(51, currentHist.length()-1) + "\n";
+                    }
+                    else {
+                        histWell = "Sick Visit, ";
+                        histComments = currentHist.substring(52, currentHist.length()-1) + "\n";
+                    }
+                    returned += histDate + histWell + histComments;
         }
 
         for (int i = 0; i < visitHistory.size(); i++) {
